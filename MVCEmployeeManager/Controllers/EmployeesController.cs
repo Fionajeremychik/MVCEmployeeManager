@@ -28,8 +28,39 @@ namespace MVCEmployeeManager.Controllers
             return View(model);
         }
 
-        
+        [HttpGet]
+        public IActionResult Insert()
+        {
+            FillCountries();
+            return View();
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Insert(Employee model)
+        {
+            FillCountries();
+            if (ModelState.IsValid)
+            {
+                _db.Employees.Add(model);
+                _db.SaveChanges();
+                ViewBag.Message = "Employee added successfully";
+            }
+            return View(model);
 
+        }
+
+        // drop down menu
+        private void FillCountries()
+        {
+            List<SelectListItem> listOfCountries = (from c in _db.Employees
+                                                    select new SelectListItem()
+                                                    {
+                                                        Text = c.Country,
+                                                        Value = c.Country
+                                                    }).Distinct().ToList();
+            // store data into ViewBag and pass it to the view
+            ViewBag.Countries = listOfCountries;
+        }
     }
 }
