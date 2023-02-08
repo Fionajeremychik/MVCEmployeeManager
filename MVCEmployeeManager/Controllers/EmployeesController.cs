@@ -50,6 +50,33 @@ namespace MVCEmployeeManager.Controllers
 
         }
 
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            FillCountries();
+            var model = _db.Employees.Find(id);
+            return View(model);
+        }
+
+        [HttpGet]
+        [ActionName("Delete")]
+        public IActionResult ConfirmDelete(int id)
+        {
+            var model = _db.Employees.Find(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            var model = _db.Employees.Find(id);
+            _db.Employees.Remove(model);
+            _db.SaveChanges();
+            TempData["Message"] = "Employee Deleted Successfully";
+            return RedirectToAction("List");
+        }
+
         // drop down menu
         private void FillCountries()
         {
