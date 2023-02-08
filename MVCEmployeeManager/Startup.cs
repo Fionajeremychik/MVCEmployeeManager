@@ -47,7 +47,7 @@ namespace MVCEmployeeManager
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=EmployeeManager}/{action=List}/{id?}");
+                    pattern: "{controller=Employees}/{action=List}/{id?}");
             });
         }
     }
