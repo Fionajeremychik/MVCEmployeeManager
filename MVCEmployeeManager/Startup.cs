@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MVCEmployeeManager.Models;
+using MVCEmployeeManager.Security;
 
 namespace MVCEmployeeManager
 {
@@ -27,6 +28,16 @@ namespace MVCEmployeeManager
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("AppDb")));
+            services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AppDb")));
+
+            services.AddIdentity<AppIdentityUser, AppIdentityRole>()
+              .AddEntityFrameworkStores<AppIdentityDbContext>();
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Security/SignIn";
+                options.AccessDeniedPath = "/Security/AccessDenied";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,7 +51,8 @@ namespace MVCEmployeeManager
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            // UserAuthentication must be before UserAuthorization
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
