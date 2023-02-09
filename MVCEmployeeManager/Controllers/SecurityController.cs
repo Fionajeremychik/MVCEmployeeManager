@@ -8,9 +8,10 @@ namespace MVCEmployeeManager.Controllers
 {
     public class SecurityController : Controller
     {
-
+        // https://learn.microsoft.com/en-us/aspnet/core/security/authentication/azure-active-directory/?view=aspnetcore-7.0
         private readonly UserManager<AppIdentityUser> userManager;
         private readonly RoleManager<AppIdentityRole> roleManager;
+        // https://www.tektutorialshub.com/asp-net-core/asp-net-core-identity-tutorial/
         private readonly SignInManager<AppIdentityUser> signInManager;
 
         public SecurityController(UserManager<AppIdentityUser> userManager,
@@ -52,6 +53,7 @@ namespace MVCEmployeeManager.Controllers
 
                 if (result.Succeeded)
                 {
+                    // https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.usermanager-1.addtoroleasync?view=aspnetcore-7.0
                     userManager.AddToRoleAsync(user, "Manager").Wait();
                     // redirect to Security Controller (SignIn)
                     return RedirectToAction("SignIn", "Security");
