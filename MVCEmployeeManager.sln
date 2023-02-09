@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCEmployeeManager", "MVCEmployeeManager\MVCEmployeeManager.csproj", "{F286F786-80F5-488D-8B4C-2A93ACD72D45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCEmployeeManager", "MVCEmployeeManager\MVCEmployeeManager.csproj", "{F286F786-80F5-488D-8B4C-2A93ACD72D45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManageRazorPages", "EmployeeManageRazorPages\EmployeeManageRazorPages.csproj", "{998E11A2-0E96-4945-A0AC-00E5A6984485}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagerWebAPI", "EmployeeManagerWebAPI\EmployeeManagerWebAPI.csproj", "{044C7D0F-60E1-4EF6-AF1A-6D4996A44EDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{F286F786-80F5-488D-8B4C-2A93ACD72D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F286F786-80F5-488D-8B4C-2A93ACD72D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F286F786-80F5-488D-8B4C-2A93ACD72D45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{998E11A2-0E96-4945-A0AC-00E5A6984485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{998E11A2-0E96-4945-A0AC-00E5A6984485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{998E11A2-0E96-4945-A0AC-00E5A6984485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{998E11A2-0E96-4945-A0AC-00E5A6984485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{044C7D0F-60E1-4EF6-AF1A-6D4996A44EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{044C7D0F-60E1-4EF6-AF1A-6D4996A44EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{044C7D0F-60E1-4EF6-AF1A-6D4996A44EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{044C7D0F-60E1-4EF6-AF1A-6D4996A44EDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
